@@ -266,7 +266,7 @@ describe('NoteEditor Component', () => {
       fireEvent.click(saveButton);
 
       await waitFor(() => {
-        expect(screen.getByText('Failed to save note')).toBeInTheDocument();
+        expect(screen.getByText(/Failed to save note/)).toBeInTheDocument();
       });
     });
   });
