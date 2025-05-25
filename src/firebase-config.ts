@@ -32,5 +32,8 @@ if (import.meta.env.DEV) {
   connectFirestoreEmulator(db, 'localhost', 8080);
   console.warn('🔥 Using Firestore emulator. Is it running? (firebase emulators:start)');
 }
-
+if (import.meta.env.VITE_FIREBASE_EMULATOR_HOSTS === 'true') {
+  connectFirestoreEmulator(db, 'localhost', 8080);
+  console.log('🔥 Connected to Firestore emulator');
+}
 export default app;

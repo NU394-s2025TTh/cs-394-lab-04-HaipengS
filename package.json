@@ -18,7 +18,9 @@
     "kill-emulators": "kill-port 5000 8080 9099 5001"
   },
   "dependencies": {
-    "firebase": "^11.6.0",
+    "emulator": "^0.1.0",
+    "firebase": "^11.8.1",
+    "init": "^0.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "uuid": "^11.1.0"

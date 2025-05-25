@@ -10,7 +10,9 @@ import { Note } from '../types/Note';
 
 // Mock the deleteNote function
 vi.mock('../services/noteService', () => {
-  const mockDeleteNote = vi.fn(() => Promise.resolve());
+  const mockDeleteNote = vi.fn(
+    () => new Promise((resolve) => setTimeout(resolve, 100)), // add a delay
+  );
   return {
     deleteNote: mockDeleteNote,
   };
@@ -82,7 +84,7 @@ describe('NoteItem Component', () => {
       await userEvent.click(deleteButton);
 
       // Wait for the "Edit" button to become disabled
-      const editButton = await screen.findByText('Edit');
+      const editButton = await screen.findByTestId('edit-button');
       expect(editButton).toBeDisabled();
 
       // Restore the original window.confirm behavior
